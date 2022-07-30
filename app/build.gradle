@@ -66,4 +66,8 @@ dependencies {
     implementation "androidx.room:room-runtime:$room_version"
     ksp "androidx.room:room-compiler:2.4.3"
     testImplementation "androidx.room:room-testing:$room_version"
+    //Koin
+    def koin_version= "3.2.0"
+    implementation "io.insert-koin:koin-core:$koin_version"
+    implementation "io.insert-koin:koin-android:$koin_version"
 }
