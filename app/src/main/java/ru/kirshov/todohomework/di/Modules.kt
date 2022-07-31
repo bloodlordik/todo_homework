@@ -11,7 +11,7 @@ import ru.kirshov.todohomework.domain.MainViewModel
 import ru.kirshov.todohomework.domain.ToDoRepository
 
 val appModule = module {
-    single { Room.databaseBuilder(get(),TodoDatabase::class.java, "todo_data").build() }
+    single { Room.databaseBuilder(get(),TodoDatabase::class.java, "todo_data").build().todoDao() }
     factory { ToDoRepository(get(), get()) }
     viewModel { MainViewModel(get(), get()) }
     single<AppDispatchers> { object :AppDispatchers{
