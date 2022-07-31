@@ -12,11 +12,12 @@ data class TodoItemModel(
     val createdDateTime: LocalDateTime,
     val changedDateTime: LocalDateTime? = null,
     val deadLine: LocalDateTime? = null
-){
-    fun toEntity():TodoRecord{
+) {
+    fun toEntity(): TodoRecord {
         return TodoRecord(
+            id = this.id,
             content = this.content,
-            priority = when(this.priority){
+            priority = when (this.priority) {
                 ToDoPriority.LOW -> 0
                 ToDoPriority.NORMAL -> 1
                 ToDoPriority.HIGH -> 2
@@ -28,24 +29,29 @@ data class TodoItemModel(
 
         )
     }
-    companion object{
-        fun fromEntity(entity:TodoRecord):TodoItemModel{
+
+    companion object {
+        fun fromEntity(entity: TodoRecord): TodoItemModel {
             return TodoItemModel(
+                id = entity.id,
                 content = entity.content,
                 isDone = entity.isDone,
                 createdDateTime = LocalDateTime.parse(entity.createdDateTime),
-                changedDateTime = if (entity.changedDateTime==null) null else LocalDateTime.parse(entity.changedDateTime),
+                changedDateTime = if (entity.changedDateTime == null) null else LocalDateTime.parse(
+                    entity.changedDateTime
+                ),
                 deadLine = if (entity.deadLine == null) null else LocalDateTime.parse(entity.deadLine),
-                priority = when(entity.priority){
+                priority = when (entity.priority) {
                     0 -> ToDoPriority.LOW
-                    1->ToDoPriority.NORMAL
-                    2->ToDoPriority.HIGH
+                    1 -> ToDoPriority.NORMAL
+                    2 -> ToDoPriority.HIGH
                     else -> ToDoPriority.LOW
                 }
             )
         }
     }
 }
-enum class ToDoPriority{
+
+enum class ToDoPriority {
     LOW, NORMAL, HIGH
 }
