@@ -7,5 +7,5 @@ class MainViewModel(
     private val toDoRepository: ToDoRepository,
     private val dispatchers: AppDispatchers
 ):ViewModel() {
-
+val text = "Testing"
 }
