@@ -4,8 +4,8 @@ import androidx.room.Room
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import ru.kirshov.todohomework.data.TodoDatabase
-import ru.kirshov.todohomework.domen.MainViewModel
-import ru.kirshov.todohomework.domen.ToDoRepository
+import ru.kirshov.todohomework.domain.MainViewModel
+import ru.kirshov.todohomework.domain.ToDoRepository
 
 val appModule = module {
     single { Room.databaseBuilder(get(),TodoDatabase::class.java, "todo_data").build() }

@@ -1,4 +1,4 @@
-package ru.kirshov.todohomework.domen
+package ru.kirshov.todohomework.domain
 
 
 import ru.kirshov.todohomework.data.TodoDatabase
