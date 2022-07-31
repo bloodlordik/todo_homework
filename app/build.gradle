@@ -28,7 +28,9 @@ android {
             arg("room.schemaLocation", "$projectDir/schemas".toString())
         }
     }
-
+    buildFeatures {
+        viewBinding true
+    }
     buildTypes {
         release {
             minifyEnabled false
